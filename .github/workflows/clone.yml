@@ -1,9 +1,17 @@
 name: GitHub Clone Count Update Everyday
 
 on:
+  # run automatically every 24 hours
   schedule:
-    - cron: "0 */24 * * *"
+    - cron: "0 */24 * * *" 
+  
+  # allows to manually run the job at any time
   workflow_dispatch:
+  
+  # run on every push on the master branch
+  push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -48,7 +56,7 @@ jobs:
 
       - name: update Web-Crawler-Download-Img_clone.json
         run: |
-          curl https://raw.githubusercontent.com/MShawon/github-clone-count-badge/master/clone.py > clone.py
+          curl https://raw.githubusercontent.com/Junwu0615/Web-Crawler-Download-Img/master/clone.py > clone.py
           python3 clone.py
 
       - name: Update gist with latest count
@@ -63,7 +71,7 @@ jobs:
           if [ ! -f CLONE.md ]; then
             shields="https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url="
             url="https://gist.githubusercontent.com/${{ github.actor }}/${{ steps.set_id.outputs.GIST }}/raw/Web-Crawler-Download-Img_clone.json"
-            repo="https://github.com/MShawon/github-clone-count-badge"
+            repo="https://github.com/Junwu0615/Web-Crawler-Download-Img"
             echo ''> CLONE.md
             echo '
             **Markdown**
