@@ -46,12 +46,11 @@ def mkdir(path):
         
 def parse_args():
     parse = ArgumentParser()
-    parse.add_argument("-t", "--type", help = "give a type of web | ex: 'unsplash / ptt / google picture'", default = "type", type = str)
-    parse.add_argument("-u", "--url", help = "give a URL | ex: 'https://...'", default = "url", type = str)
-    parse.add_argument("-p", "--path", help = "give a path | ex: './img/'", default = "path", type = str)
-    args = parse.parse_args() #解析參數對象 獲得解析對象
+    parse.add_argument("-t", "--type", help = "give a type of web | ex: 'unsplash / ptt / google picture'", default = "unsplash", type = str)
+    parse.add_argument("-u", "--url", help = "give a URL | ex: 'https://...'", default = "https://unsplash.com/s/photos/japan", type = str)
+    parse.add_argument("-p", "--path", help = "give a path | ex: './img/'", default = "./japan_img/", type = str)
+    args = parse.parse_args()
     return args
-
 
 def download_img(typE, url, path):
     web = requests.get(url, headers = headers, cookies = cookies) 
@@ -102,7 +101,6 @@ def progress_bar (task):
         case "Confirmed_That_The_Folder_Exists":
             print("Confirmed That The Folder Exists.")
     
-    
 if __name__ == "__main__":
     args = parse_args()
     progress_bar("args")
@@ -110,4 +108,3 @@ if __name__ == "__main__":
     progress_bar("web_state")
     path = args.path
     download_img(args.type, args.url, args.path)
-    
