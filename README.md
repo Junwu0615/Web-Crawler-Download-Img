@@ -8,19 +8,20 @@
 [![](https://img.shields.io/badge/Package-ArgumentParser_1.2.1-green.svg?style=plastic)](https://pypi.org/project/argumentparser/) 
 
 ## STEP1.　CLONE
-```ruby
+```python
 git clone https://github.com/Junwu0615/Web-Crawler-Download-Img.git
 ```
 
 ## STEP.2　INSTALL PACKAGES
-```ruby
+```python
 pip install -r requirements.txt
 ```
 
 ## STEP3.　RUN
-```ruby
+```python
 python download_multi_img.py -h
 ```
+
 #If you encounter the following problems :
 > ModuleNotFoundError: No module named 'python'.<br/>
 > ModuleNotFoundError: No module named 'pip'. 
@@ -46,7 +47,7 @@ python download_multi_img.py -h
 - `-t` PTT
 - `-u` https://www.ptt.cc/bbs/Beauty/M.1702040877.A.239.html
 - `-p` ./森香澄_img
-```ruby
+```python
 python download_multi_img.py -t ptt -u https://www.ptt.cc/bbs/Beauty/M.1702040877.A.239.html -p ./森香澄_img
 ```
 ![森香澄.gif](/森香澄_img/森香澄.gif)
@@ -61,7 +62,7 @@ python download_multi_img.py -t ptt -u https://www.ptt.cc/bbs/Beauty/M.170204087
 - `-t` unsplash
 - `-u` https://unsplash.com/s/photos/cat
 - `-p` ./cat_img
-```ruby
+```python
 python download_multi_img.py -t unsplash -u https://unsplash.com/s/photos/cat -p ./cat_img
 ```
  - 運行完畢後會在 `./cat_img` 生成多個 `jpg` 檔。
