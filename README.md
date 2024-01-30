@@ -8,18 +8,18 @@
 [![](https://img.shields.io/badge/Package-ArgumentParser_1.2.1-green.svg?style=plastic)](https://pypi.org/project/argumentparser/) 
 
 ## STEP1.　CLONE
-```python
+```py
 git clone https://github.com/Junwu0615/Web-Crawler-Download-Img.git
 ```
 
 ## STEP.2　INSTALL PACKAGES
-```python
+```py
 pip install -r requirements.txt
 ```
 
 ## STEP3.　RUN
-```python
-python download_multi_img.py -h
+```py
+python download-multi-img.py -h
 ```
 
 #If you encounter the following problems :
@@ -33,10 +33,10 @@ python download_multi_img.py -h
 
 ## STEP4.　HELP
 
-- -h　Help:　Show this help message and exit.
-- -t　Type:　Give a type of web | ex:　[Unsplash](https://unsplash.com/) / [Ptt](https://www.ptt.cc/bbs/Beauty/index.html) / [Google Picture](https://www.google.com/imghp?hl=zh-TW&ogbl)
-- -u　Url :　 Give a url | ex:　https://...
-- -p　Path:　Give a path | ex:　./img
+- `-h`　Help:　Show this help message and exit.
+- `-t`　Type:　Give a type of web | ex:　[Unsplash](https://unsplash.com/) / [Ptt](https://www.ptt.cc/bbs/Beauty/index.html) / [Google Picture](https://www.google.com/imghp?hl=zh-TW&ogbl)
+- `-u`　Url :　 Give a url | ex:　https://...
+- `-p`　Path:　Give a path | ex:　./img
 
 ## STEP5.　EXAMPLE
 #python download_multi_img.py `-t 類型` `-u 網址` `-p 儲存路徑` ，共 3 個輸入內容，具體請參考 `STEP3. HELP`。<br/>
@@ -47,8 +47,8 @@ python download_multi_img.py -h
 - `-t` PTT
 - `-u` https://www.ptt.cc/bbs/Beauty/M.1702040877.A.239.html
 - `-p` ./森香澄_img
-```python
-python download_multi_img.py -t ptt -u https://www.ptt.cc/bbs/Beauty/M.1702040877.A.239.html -p ./森香澄_img
+```py
+python download-multi-img.py -t ptt -u https://www.ptt.cc/bbs/Beauty/M.1702040877.A.239.html -p ./森香澄_img
 ```
 ![森香澄.gif](/森香澄_img/森香澄.gif)
  - 運行完畢後會在 `./森香澄_img` 生成多個 `jpg` 檔。
@@ -62,8 +62,8 @@ python download_multi_img.py -t ptt -u https://www.ptt.cc/bbs/Beauty/M.170204087
 - `-t` unsplash
 - `-u` https://unsplash.com/s/photos/cat
 - `-p` ./cat_img
-```python
-python download_multi_img.py -t unsplash -u https://unsplash.com/s/photos/cat -p ./cat_img
+```py
+python download-multi-img.py -t unsplash -u https://unsplash.com/s/photos/cat -p ./cat_img
 ```
  - 運行完畢後會在 `./cat_img` 生成多個 `jpg` 檔。
  - cat12.jpg
