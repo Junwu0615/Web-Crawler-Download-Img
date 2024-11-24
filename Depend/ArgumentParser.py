@@ -24,8 +24,7 @@ class AP:
                            help="give a path | ex: './img/'",
                            default="./Downloads/", type=str)
 
-        args = parse.parse_args()
-        return args
+        return parse.parse_args()
 
     def config_once(self):
         args = self.parse_args()
