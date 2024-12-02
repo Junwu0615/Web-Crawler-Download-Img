@@ -42,31 +42,31 @@ python Entry.py -h
 #### 當網址太長時，可以使用 [PicSee 縮短網址](https://picsee.io/?utm_source=picsee-co&utm_medium=referral&utm_term=home) 來幫助 `命令提示字元(cmd)` 讀取，以避免出錯。<br/><br/>
 
 ### I.　PTT Beauty 版下載圖片
-在 **PTT Beauty版** 搜尋內容並點選進入後，其網址即為 `-u` ，並將圖片存放於 **./Downloads**。
+在 **PTT Beauty版** 搜尋內容並點選進入後，其網址即為 `-u` ，並將圖片存放於 **./downloads**。
 - `-t` PTT
 - `-u` https://www.ptt.cc/bbs/Beauty/M.1702040877.A.239.html
-- `-p` ./Downloads
+- `-p` ./downloads
 ```py
-python Entry.py -t ptt -u https://www.ptt.cc/bbs/Beauty/M.1702040877.A.239.html -p ./Downloads
+python Entry.py -t ptt -u https://www.ptt.cc/bbs/Beauty/M.1702040877.A.239.html -p ./downloads
 ```
-![森香澄.gif](/Sample/森香澄.gif)
- - 運行完畢後會在 `./Downloads` 生成多個 `jpg` 檔。
+![森香澄.gif](/sample/森香澄.gif)
+ - 運行完畢後會在 `./downloads` 生成多個 `jpg` 檔。
  - 森香澄.jpg
- - ![森香澄.jpg](/Sample/森香澄.jpg)
+ - ![森香澄.jpg](/sample/森香澄.jpg)
 
 <br/>
 
 ### II.　Unsplash 下載圖片
-在 **Unsplash** 以關鍵字 **cat** 搜尋後，其網址即為 `-u` ，並將圖片存放於 **./Downloads**。
+在 **Unsplash** 以關鍵字 **cat** 搜尋後，其網址即為 `-u` ，並將圖片存放於 **./downloads**。
 - `-t` unsplash
 - `-u` https://unsplash.com/s/photos/cat
-- `-p` ./Downloads
+- `-p` ./downloads
 ```py
-python Entry.py -t unsplash -u https://unsplash.com/s/photos/cat -p ./Downloads
+python Entry.py -t unsplash -u https://unsplash.com/s/photos/cat -p ./downloads
 ```
- - 運行完畢後會在 `./Downloads` 生成多個 `jpg` 檔。
+ - 運行完畢後會在 `./downloads` 生成多個 `jpg` 檔。
  - cat12.jpg
- - <img width='426' height='640' src="https://github.com/Junwu0615/Web-Crawler-Download-Img/blob/master/Sample/cat12.jpg"/>
+ - <img width='426' height='640' src="https://github.com/Junwu0615/Web-Crawler-Download-Img/blob/master/sample/cat12.jpg"/>
 
 
 ## 參考來源

@@ -22,7 +22,7 @@ class AP:
 
         parse.add_argument("-p", "--path",
                            help="give a path | ex: './img/'",
-                           default="./Downloads/", type=str)
+                           default="./downloads/", type=str)
 
         return parse.parse_args()
 

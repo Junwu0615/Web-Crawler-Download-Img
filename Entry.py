@@ -3,8 +3,8 @@
 @author: PC
 Update Time: 2024-11-24
 """
-from Depend.DownloadsImg import DownloadsImg
-from Depend.ArgumentParser import AP
+from package.DownloadsImg import DownloadsImg
+from package.ArgumentParser import AP
 
 class Entry:
     def __init__(self):
