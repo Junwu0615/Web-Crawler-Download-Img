@@ -3,6 +3,7 @@
 @author: PC
 Update Time: 2024-12-01
 """
+from tqdm import tqdm
 import os, copy, requests
 from bs4 import BeautifulSoup
 from rich.console import Console
@@ -51,14 +52,21 @@ class DownloadsImg:
             case "Get_Downloads_List":
                 self.console.print(f"Get Downloads List... {symbol * 41} 100%")
             case "ThreadPoolExecutor":
-                self.console.print(f"Download Multiple Images... {symbol * 35} 100%")
+                self.console.print(f"ThreadPoolExecutor Done !")
 
-    def create_img(self, url, headers, cookies):
-        res = self.get_source(url, headers, cookies)
-        f = open(f"{self.path}/{self.num}.jpg", "wb")
-        f.write(res.content)
-        f.close()
-        self.num += 1
+    def create_img(self, url, headers, cookies) -> int:
+        ret = -1
+        try:
+            res = self.get_source(url, headers, cookies)
+            f = open(f"{self.path}/{self.num}.jpg", "wb")
+            f.write(res.content)
+            f.close()
+            self.num += 1
+            ret = 0
+        except IOError as e:
+            print(e)
+        finally:
+            return ret
 
     def get_todo_list(self):
         res = self.get_source(self.url, self.headers, self.cookies)
@@ -79,18 +87,26 @@ class DownloadsImg:
         # FIXME 建立非同步的多執行緒的啟動器 -> 同時下載圖片
         max_workers = 5
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            new_task = {}
             task = {executor.submit(self.create_img, url, self.headers, self.cookies):
                         (url, self.headers, self.cookies) for url in self.todo_list}
-            total = len(task)
+
+            schedule = tqdm(total=len(task), desc='Downloads Schedule: ')
             while len(task) > 0:
-                new_task = {}
-                issue, finish = wait(task, return_when='FIRST_COMPLETED')
-                for i in issue:
-                    if i.__dict__['_exception'] is not None:
-                        job = task[i]
-                        new_task[executor.submit(self.create_img, job[0], job[1], job[2])] = job
-                task = copy.deepcopy(new_task)
-                self.console.print(f'Downloads Schedule: {total-len(task)}/{total}')
+                callback, _ = wait(task, return_when='FIRST_COMPLETED')
+                if callback != set():
+                    for future in callback:
+                        job = task[future]
+                        del task[future]
+                        if future.result() in [0]:
+                            schedule.update(1)
+                        else:
+                            new_task[future] = job  # 先儲存[再submit需求]
+
+                if len(task) == 0:
+                    for future, job in new_task.items():
+                        task[executor.submit(self.create_img, job[0], job[1], job[2])] = job
+                    new_task = {}
 
     def main(self):
         DownloadsImg.check_folder(self.path)
